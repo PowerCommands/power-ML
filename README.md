@@ -18,10 +18,10 @@ environment:
       environmentVariableTarget: User
 ```
 ## Computer vision command
-So the first PowerCommand I added is the ```computervision``` command, just run it and of course check out the code.
+So the first PowerCommand I added is the ```computervision``` command (**ComputerVisionCommand.cs**), just run it and of course check out the code.
 
 ```
-ComputerVision
+computervision
 ```
 
 Read more about it here: https://learn.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=visual-studio%2C3-2&pivots=programming-language-csharp
