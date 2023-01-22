@@ -5,14 +5,16 @@ namespace PowerMLCommands.Commands;
 
 [PowerCommandDesign( description: "Run Microsoft.Azure.CognitiveServices.Vision.ComputerVision services",
                         useAsync: true,
+                       arguments: "!<url>",
                          example: "computervision")]
 public class ComputerVisionCommand : CommandBase<PowerCommandsConfiguration>
 {
     public ComputerVisionCommand(string identifier, PowerCommandsConfiguration configuration) : base(identifier, configuration) { }
     public override async Task<RunResult> RunAsync()
     {
+        var url = Input.SingleArgument;
         var client = Authenticate(Configuration.Environment.GetValue("powercommands-computer-vision-endpoint"), Configuration.Environment.GetValue("powercommands-computer-vision"));
-        await AnalyzeImageUrl(client, "https://moderatorsampleimages.blob.core.windows.net/samples/sample16.png");
+        await AnalyzeImageUrl(client, url);
         return Ok();
     }
     public static ComputerVisionClient Authenticate(string endpoint, string key) => new(new ApiKeyServiceClientCredentials(key)) { Endpoint = endpoint };
@@ -37,5 +39,6 @@ public class ComputerVisionCommand : CommandBase<PowerCommandsConfiguration>
             WriteLine($"{tag.Name} {tag.Confidence}");
         }
         Console.WriteLine();
+        Write(ConfigurationGlobals.Prompt);
     }
 }

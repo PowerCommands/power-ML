@@ -6,6 +6,8 @@ configuration:
   repository: https://github.com/PowerCommands/PowerCommands2022
   backupPath: ..\..\..\..\Core\PainKiller.PowerCommands.Core\  
   defaultGitRepositoryPath: ..\..\..\..\..\..\
+  pathToDockerDesktop: C:\Program Files\Docker\Docker
+  goFireflyioAiacDockerImage: ghcr.io/gofireflyio/aiac
   metadata:
     name: PowerML
     description: Description of my project
@@ -36,4 +38,6 @@ configuration:
     - name: powercommands-computer-vision-endpoint
       environmentVariableTarget: User
     - name: powercommands-computer-vision
+      environmentVariableTarget: User
+    - name: aiac
       environmentVariableTarget: User
